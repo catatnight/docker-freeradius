@@ -17,7 +17,6 @@ sed -i "s/password = \"radpass\"/password = \"$mysql_passwd\"/" /etc/freeradius/
 sed -i 's/^#[ \t]sql$/\tsql/' /etc/freeradius/sites-available/default
 sed -i 's/^#[ \t]sql$/\tsql/' /etc/freeradius/sites-available/inner-tunnel
 sed -i '0,/md5/{s/md5/mschapv2/}' /etc/freeradius/eap.conf
-sed -i "s/#simul_count_query/simul_count_query/" /etc/freeradius/sql/mysql/dialup.conf
 
 # Run freeradius
 /usr/sbin/freeradius -f
