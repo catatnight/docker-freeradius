@@ -2,34 +2,27 @@
 + Docker 0.8
 
 ## Usage
-1. edit ```Dockerfile``` (NO double quotes)
+1. configure
 
-    ```Shell
-    # Configure
+    ```bash
+    # Dockerfile (NO double quotes)
+    #Configure
     ENV radpass       Your Radpass   
     ENV mysql_server  Your Mysql Server ip or Address
     ENV mysql_login   radius
     ENV mysql_passwd  Your Password
     ```
+
 2. run ```build.sh``` and ```run-server.sh``` 
-3. if freeradius is linked to a local docker container running MySQL, just
-    1. edit ```assets/run-radius.sh```
+3. if freeradius is linked to a local docker container running MySQL, just edit 
 
-        ```Shell
-        replace
-            sed -i "s/server = \"localhost\"/server = \"$mysql_server\"/" /etc/freeradius/sql.conf
-        by
-            sed -i "s/server = \"localhost\"/server = \"$<alias>_PORT_3306_TCP_ADDR\"/" /etc/freeradius/sql.conf
-        ```
+    ```bash
+    # run-server.sh
+    docker run -p 1812:1812/udp -p 1813:1813/udp -name freeradius -d -link <container>:<alias> catatnight/freeradius-mysql
 
-    2. edit ```run-server.sh```
-
-        ```Shell
-        replace 
-            docker run -p 1812:1812/udp -p 1813:1813/udp -name freeradius -d catatnight/freeradius-mysql
-        by
-            docker run -p 1812:1812/udp -p 1813:1813/udp -name freeradius -d -link <container>:<alias> catatnight/freeradius-mysql
-        ```
+    # assets/run-radius.sh
+    sed -i "s/server = \"localhost\"/server = \"$<alias>_PORT_3306_TCP_ADDR\"/" /etc/freeradius/sql.conf
+    ```
 
 ## Note
 + all remote freeradius clients (ipv4/ipv6) are allowed
