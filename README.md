@@ -9,8 +9,8 @@
     #Configure
     ENV radpass       Your Radpass   
     ENV mysql_server  Your Mysql Server ip or Address
-    ENV mysql_login   radius
-    ENV mysql_passwd  Your Password
+    ENV mysql_login   Your Mysql Username
+    ENV mysql_passwd  Your Mysql Password
     ```
 
 2. run ```build.sh``` and ```run-server.sh``` 
