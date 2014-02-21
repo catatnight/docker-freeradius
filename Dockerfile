@@ -17,17 +17,17 @@ RUN apt-get -y install python-software-properties  \
 
 # Add files
 #freeradius
-ADD assets/run-radius.sh /root/run-radius.sh
+ADD assets/run-radius.sh /opt/run-radius.sh
 #supervisor
 ADD assets/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
-RUN chmod 755 /root/*.sh
+RUN chmod 755 /opt/*.sh
 
 # Configure
 ENV radpass Your Radpass   
 ENV mysql_server Your Mysql Server ip or Address
-ENV mysql_login  radius
-ENV mysql_passwd Your Password
+ENV mysql_login  Your Mysql Username
+ENV mysql_passwd Your Mysql Password
 
 # Ports
 EXPOSE 1812/udp
