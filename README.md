@@ -14,14 +14,18 @@
     ```
 
 2. run ```build.sh``` and ```run-server.sh``` 
-3. if freeradius is linked to a local docker container running MySQL, just edit 
+
+3. if freeradius is linked to MySQL database ruuning on localhost, don't forget adding iptables rules like:
+    ```ufw allow proto tcp from 172.17.0.0/16 to any port 3306```
+
+4. if freeradius is linked to a local docker container running MySQL, just edit 
 
     ```bash
     # run-server.sh
-    docker run -p 1812:1812/udp -p 1813:1813/udp -name freeradius -d -link <container>:<alias> catatnight/freeradius-mysql
+    ... -name freeradius -d -link <container>:<alias> catatnight/freeradius-mysql
 
     # assets/run-radius.sh
-    sed -i "s/server = \"localhost\"/server = \"$<alias>_PORT_3306_TCP_ADDR\"/" /etc/freeradius/sql.conf
+    sed -i "s/server = \"localhost\"/server = \"$<alias>_PORT_3306_TCP_ADDR\"/" ...
     ```
 
 ## Note
