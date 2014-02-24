@@ -5,6 +5,7 @@ radpass='Your Radpass'
 mysql_server='Your Mysql Server ip or Address'
 mysql_login='Your Mysql Username'
 mysql_passwd='Your Mysql Password'
+time_zone='Asia/Shanghai'
 
 ### Dont't edit below
 #clients.conf 
@@ -23,4 +24,7 @@ sed -i "s/password = \"radpass\"/password = \"$mysql_passwd\"/" /etc/freeradius/
 sed -i 's/^#[ \t]sql$/\tsql/' /etc/freeradius/sites-available/default
 sed -i 's/^#[ \t]sql$/\tsql/' /etc/freeradius/sites-available/inner-tunnel
 sed -i '0,/md5/{s/md5/mschapv2/}' /etc/freeradius/eap.conf
+#timezone
+sudo bash -c 'echo "$time_zone" > /etc/timezone' 
+dpkg-reconfigure -f noninteractive tzdata
 

@@ -12,8 +12,7 @@ RUN apt-get update
 RUN apt-get -y install python-software-properties  \
     && add-apt-repository ppa:freeradius/stable \
     && apt-get update \
-    && apt-get -y install freeradius freeradius-mysql \
-    && sudo bash -c 'echo "Asia/Shanghai" > /etc/timezone' && dpkg-reconfigure -f noninteractive tzdata
+    && apt-get -y install freeradius freeradius-mysql 
 
 # Add files
 #freeradius
