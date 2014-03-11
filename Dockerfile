@@ -12,8 +12,9 @@ RUN apt-get update
 RUN apt-get -y install python-software-properties  \
     && add-apt-repository ppa:freeradius/stable \
     && apt-get update \
-    && apt-get -y install freeradius freeradius-mysql 
-
+    && apt-get -y install freeradius freeradius-mysql \
+    && sudo bash -c 'echo "Asia/Shanghai" > /etc/timezone' && dpkg-reconfigure -f noninteractive tzdata
+    
 # Add files
 #freeradius
 ADD assets/install.sh /opt/install.sh
@@ -23,4 +24,4 @@ RUN chmod 755 /opt/*.sh && /opt/install.sh
 EXPOSE 1812/udp
 EXPOSE 1813/udp
 
-CMD /usr/sbin/freeradius -f
+CMD ["/usr/sbin/freeradius","-f"]
