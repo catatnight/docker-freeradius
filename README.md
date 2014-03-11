@@ -5,7 +5,7 @@
 1. configure
 
     ```bash
-    # assets/install.sh.sample (Rename to install.sh after you're done)
+    # assets/install.sample.sh (Rename to install.sh after you're done)
     radpass='Your Radpass'
     mysql_server='Your Mysql Server ip or Address'
     mysql_login='Your Mysql Username'
