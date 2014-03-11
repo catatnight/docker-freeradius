@@ -5,8 +5,7 @@
 1. configure
 
     ```bash
-    # assets/install.sh
-    #Configure
+    # assets/install.sh.sample (Rename to install.sh after you're done)
     radpass='Your Radpass'
     mysql_server='Your Mysql Server ip or Address'
     mysql_login='Your Mysql Username'
@@ -15,7 +14,7 @@
 
 2. run ```build.sh``` and ```run-server.sh``` 
 
-3. if freeradius is linked to MySQL on localhost, don't forget adding iptables rules like:
+3. if freeradius is linked to MySQL on localhost, maybe you'd like to add an iptables rule like:
     ```ufw allow proto tcp from 172.17.0.0/16 to any port 3306```
 
 ## Note
