@@ -23,4 +23,4 @@ RUN chmod 755 /opt/*.sh && /opt/install.sh
 EXPOSE 1812/udp
 EXPOSE 1813/udp
 
-CMD /usr/sbin/freeradius -f
+CMD ["/usr/sbin/freeradius","-f"]
