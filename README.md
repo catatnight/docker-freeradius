@@ -1,5 +1,5 @@
 ## Requirement
-+ Docker 0.8
++ Docker 0.11
 
 ## Usage
 1. configure
