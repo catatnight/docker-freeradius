@@ -5,11 +5,12 @@
 1. configure
 
     ```bash
-    # assets/install.sample.sh (Rename to install.sh after you're done)
-    radpass='Your Radpass'
-    mysql_server='Your Mysql Server ip or Address'
-    mysql_login='Your Mysql Username'
-    mysql_passwd='Your Mysql Password'
+    # Dockerfile (NO double quotes)
+    ENV radpass      Your Radpass
+    ENV mysql_server Your Mysql Server ip or Address
+    ENV mysql_login  Your Mysql Username
+    ENV mysql_passwd Your Mysql Password
+    ENV time_zone    Asia/Shanghai
     ```
 
 2. run ```build.sh``` and ```run-server.sh``` 
