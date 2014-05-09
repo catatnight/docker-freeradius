@@ -15,6 +15,6 @@ sed -i 's/^#[ \t]sql$/\tsql/' /etc/freeradius/sites-available/inner-tunnel
 sed -i '0,/md5/{s/md5/mschapv2/}' /etc/freeradius/eap.conf
 
 #timezone
-sudo bash -c "echo $time_zone > /etc/timezone" 
+bash -c "echo $time_zone > /etc/timezone" 
 dpkg-reconfigure -f noninteractive tzdata
 
