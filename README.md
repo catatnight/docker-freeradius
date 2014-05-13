@@ -5,18 +5,14 @@
 1. configure
 
     ```bash
-    # Dockerfile (NO double quotes)
+    # edit Dockerfile
     ENV radpass      Your Radpass
     ENV mysql_server Your Mysql Server ip or Address
     ENV mysql_login  Your Mysql Username
     ENV mysql_passwd Your Mysql Password
     ENV time_zone    Asia/Shanghai
     ```
-
-2. run ```build.sh``` and ```run-server.sh``` 
-
-3. if freeradius is linked to MySQL on localhost, maybe you'd like to add an iptables rule like:
-    ```ufw allow proto tcp from 172.17.0.0/16 to any port 3306```
+2. run ```build.sh``` to build container and then start it by running ```run-server.sh```
 
 ## Note
 + all remote freeradius clients (ipv4/ipv6) are allowed
