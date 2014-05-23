@@ -1,4 +1,4 @@
-From ubuntu:precise
+From ubuntu:latest
 MAINTAINER Elliott Ye
 
 # Set noninteractive mode for apt-get
@@ -9,7 +9,7 @@ RUN apt-get update
 
 ### Start editing ###
 # Install package here for cache
-RUN apt-get -y install python-software-properties \
+RUN apt-get -y install software-properties-common \
     && add-apt-repository ppa:freeradius/stable \
     && apt-get update \
     && apt-get -y install freeradius freeradius-mysql 
