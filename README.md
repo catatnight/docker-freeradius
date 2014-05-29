@@ -2,17 +2,28 @@
 + Docker 0.11
 
 ## Usage
-1. configure
+1. Clone the git repo
+	
+	```bash
+	$ git clone https://github.com/catatnight/docker-freeradius-mysql.git
+	$ cd docker-freeradius-mysql
+	```
+2. Configure
 
-    ```bash
-    # edit Dockerfile
-    ENV radpass      Your Radpass
-    ENV mysql_server Your Mysql Server ip or Address
-    ENV mysql_login  Your Mysql Username
-    ENV mysql_passwd Your Mysql Password
-    ENV time_zone    Asia/Shanghai
-    ```
-2. run ```build.sh``` to build container and then start it by running ```run-server.sh```
+	```bash
+	$ vim Dockerfile 
+	# edit Dockerfile
+	ENV radpass      Your Radpass
+	ENV mysql_server Your Mysql Server ip or Address
+	ENV mysql_login  Your Mysql Username
+	ENV mysql_passwd Your Mysql Password
+	```
+3. Build container and then start it as root
+	
+	```bash
+	$ sudo ./build.sh
+	$ sudo ./run-server.sh
+	```
 
 ## Note
 + all remote freeradius clients (ipv4/ipv6) are allowed
