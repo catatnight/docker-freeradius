@@ -25,7 +25,6 @@ ENV time_zone    Asia/Shanghai
 
 # Initialization 
 ADD assets/install.sh /opt/install.sh
-RUN chmod 755 /opt/*.sh
 RUN /opt/install.sh 
 
 # Run
