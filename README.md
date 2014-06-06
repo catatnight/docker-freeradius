@@ -14,7 +14,7 @@
 	$ vim Dockerfile 
 	# edit Dockerfile
 	ENV radpass      Your Radpass
-	ENV mysql_server Your Mysql Server ip or Address
+	ENV mysql_server Your Mysql Server Address
 	ENV mysql_login  Your Mysql Username
 	ENV mysql_passwd Your Mysql Password
 	```
@@ -26,7 +26,7 @@
 	```
 
 ## Note
-+ all remote freeradius clients (ipv4/ipv6) are allowed
++ all remote clients (ipv4/ipv6) are allowed by freeradius, and access restriction could be specified by firewall rules.
 + ```default_eap_type = mschapv2 (default: md5)``` in ```/etc/freeradius/eap.conf```
 
 ## Reference
