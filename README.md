@@ -18,11 +18,11 @@
 	ENV mysql_login  Your Mysql Username
 	ENV mysql_passwd Your Mysql Password
 	```
-3. Build container and then start it as root
+3. Build container and then manage it as root
 	
 	```bash
 	$ sudo ./build.sh
-	$ sudo ./run-server.sh
+	$ sudo ./manage.py [start|stop|restart]
 	```
 
 ## Note
