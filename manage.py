@@ -5,7 +5,7 @@ import argparse
 
 if __name__=="__main__":
   parser = argparse.ArgumentParser()
-  parser.add_argument("execute", help="start|stop|restart spdyproxy server")
+  parser.add_argument("execute", help="start|stop|restart freeradius server")
   args = parser.parse_args()
   if args.execute== "start":
     bashCommand = "docker run --net=host --name freeradius -d catatnight/freeradius-mysql"
