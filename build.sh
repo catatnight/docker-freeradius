@@ -1,3 +1,3 @@
 #!/bin/bash
 
-docker build --rm -t catatnight/freeradius-mysql .
+docker build --rm -t catatnight/freeradius .

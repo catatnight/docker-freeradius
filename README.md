@@ -13,16 +13,21 @@
 	```bash
 	$ vim Dockerfile 
 	# edit Dockerfile
-	ENV radpass      Your Radpass
-	ENV mysql_server Your Mysql Server Address
-	ENV mysql_login  Your Mysql Username
-	ENV mysql_passwd Your Mysql Password
+	ENV radpass      radpass
+	# choose mysql or sqlite support and set related ENV values
+	ENV sql_driver   mysql|sqlite
+	ENV mysql_server ip.O.R.hostname
+	ENV mysql_login  username
+	ENV mysql_passwd password
+	ENV sqlite_db    db_filename.db
 	```
 3. Build container and then manage it as root
 	
 	```bash
 	$ sudo ./build.sh
-	$ sudo ./manage.py [start|stop|restart]
+	$ sudo ./manage.py [create|start|stop|restart|delete]
+	# when creating container with sqlite support, please specify directory path stored sqlite .db file like:
+	$ sudo ./manage.py -d /path/to/db create
 	```
 
 ## Note

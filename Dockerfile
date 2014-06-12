@@ -17,10 +17,12 @@ RUN apt-get -y install software-properties-common \
 # Add files
 
 # Configure
-ENV radpass      Your Radpass
-ENV mysql_server Your Mysql Server ip or Address
-ENV mysql_login  Your Mysql Username
-ENV mysql_passwd Your Mysql Password
+ENV radpass      radpass
+ENV sql_driver   mysql|sqlite
+ENV mysql_server ip.O.R.hostname
+ENV mysql_login  username
+ENV mysql_passwd password
+ENV sqlite_db    db_filename.db
 ENV time_zone    Asia/Shanghai
 
 # Initialization 
