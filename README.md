@@ -5,8 +5,8 @@
 1. Clone the git repo
 	
 	```bash
-	$ git clone https://github.com/catatnight/docker-freeradius-mysql.git
-	$ cd docker-freeradius-mysql
+	$ git clone https://github.com/catatnight/docker-freeradius.git
+	$ cd docker-freeradius
 	```
 2. Configure
 
