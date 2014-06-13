@@ -26,13 +26,14 @@
 	```bash
 	$ sudo ./build.sh
 	$ sudo ./manage.py [create|start|stop|restart|delete]
-	# when creating container with sqlite support, please specify directory path stored sqlite .db file like:
+	# when creating container with sqlite support, 
+	#   please specify the path of folder stored .db file as followed:
 	$ sudo ./manage.py -d /path/to/db create
 	```
 
 ## Note
 + all remote clients (ipv4/ipv6) are allowed by freeradius, and access restriction could be specified by firewall rules.
-+ ```default_eap_type = mschapv2 (default: md5)``` in ```/etc/freeradius/eap.conf```
++ ```default_eap_type = mschapv2 (default: md5)```
 
 ## Reference
 + TBD
