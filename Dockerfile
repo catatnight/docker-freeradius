@@ -22,7 +22,7 @@ ENV sql_driver   mysql|sqlite
 ENV mysql_server ip.O.R.hostname
 ENV mysql_login  username
 ENV mysql_passwd password
-ENV sqlite_db    db_filename.db
+ENV sqlite_db    db.sqlite3
 ENV time_zone    Asia/Shanghai
 
 # Initialization 

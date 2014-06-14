@@ -19,7 +19,7 @@
 	ENV mysql_server ip.O.R.hostname
 	ENV mysql_login  username
 	ENV mysql_passwd password
-	ENV sqlite_db    db_filename.db
+	ENV sqlite_db    db.sqlite3
 	```
 3. Build container and then manage it as root
 	
@@ -27,7 +27,7 @@
 	$ sudo ./build.sh
 	$ sudo ./manage.py [create|start|stop|restart|delete]
 	# when creating container with sqlite support, 
-	#   please specify the path of folder stored .db file as followed:
+	#   please specify the path of folder stored .sqlite3 file as followed:
 	$ sudo ./manage.py -d /path/to/db create
 	```
 
