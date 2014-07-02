@@ -4,8 +4,10 @@ import shlex, subprocess
 import argparse
 
 if __name__ == '__main__':
-  parser = argparse.ArgumentParser('Manage freeradius container')
-  parser.add_argument("execute", choices=['create','start','stop','restart','delete'], help="create|start|stop|restart|delete freeradius server")
+  app_name = 'freeradius'
+
+  parser = argparse.ArgumentParser(description='Manage %s container' % app_name)
+  parser.add_argument("execute", choices=['create','start','stop','restart','delete'], help='manage %s server' % app_name)
   parser.add_argument("-d", "--db_path", help="specify directory path stored sqlite .db file ")
   args = parser.parse_args()
 
@@ -18,20 +20,20 @@ if __name__ == '__main__':
     ENDC = '\033[0m'
 
   def _execute(signal,_sql):
-    signal_dict = {"create" : "docker run --net=host --name freeradius -d catatnight/freeradius", \
-                   "start"  : "docker start   freeradius", \
-                   "stop"   : "docker stop    freeradius", \
-                   "restart": "docker restart freeradius", \
-                   "delete" : "docker rm -f   freeradius" }
-    if _sql : signal_dict['create'] = "docker run --net=host -v " + _sql + ":/opt/db --name freeradius -d catatnight/freeradius"
+    signal_dict = {"create" : "docker run --net=host --name {0} -d catatnight/{0}".format(app_name), \
+                   "start"  : "docker start   %s" % app_name, \
+                   "stop"   : "docker stop    %s" % app_name, \
+                   "restart": "docker restart %s" % app_name, \
+                   "delete" : "docker rm -f   %s" % app_name}
+    if _sql : signal_dict['create'] = "docker run --net=host -v {1}:/opt/db --name {0} -d catatnight/{0}".format(app_name, _sql)
     process = subprocess.Popen(shlex.split(signal_dict[signal]), stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     if process.stdout.readline():
       if signal == "create": signal += " and start"
-      print bcolors.OKGREEN + signal + " freeradius successfully" + bcolors.ENDC
+      print bcolors.OKGREEN + signal + " %s successfully" % app_name + bcolors.ENDC
     else:
       _err = process.stderr.readline()
       if 'No such container' in _err:
-        print bcolors.WARNING + "Please create freeradius container first" + bcolors.ENDC
+        print bcolors.WARNING + "Please create %s container first" % app_name + bcolors.ENDC
       else: print bcolors.WARNING + _err + bcolors.ENDC
     output = process.communicate()[0]
 
