@@ -1,34 +1,27 @@
 ## Requirement
 + Docker 0.11
 
-## Usage
-1. Clone the git repo
-	
-	```bash
-	$ git clone https://github.com/catatnight/docker-freeradius.git
-	$ cd docker-freeradius
-	```
-2. Configure
+## Installation
+1. Build image (as root)
 
 	```bash
-	$ vim Dockerfile 
-	# edit Dockerfile
-	ENV radpass      radpass
-	# choose mysql or sqlite support and set related ENV values
-	ENV sql_driver   mysql|sqlite
-	ENV mysql_server ip.O.R.hostname
-	ENV mysql_login  username
-	ENV mysql_passwd password
-	ENV sqlite_db    db.sqlite3
+	$ docker pull catatnight/freeradius
+	$ curl https://raw.githubusercontent.com/catatnight/docker-freeradius/master/manage.py -o manage.py
+	$ chmod +x manage.py
 	```
-3. Build container and then manage it as root
-	
+
+## Usage
+1. Create container and manage it (as root)
+
 	```bash
-	$ sudo ./build.sh
-	$ sudo ./manage.py [create|start|stop|restart|delete]
-	# when creating container with sqlite support, 
-	#   please specify the path of folder stored .sqlite3 file as followed:
-	$ sudo ./manage.py -d /path/to/db create
+	$ ./manage.py [create|start|stop|restart|delete]
+	# mysql support
+	$ ./manage.py -s radpass --mysql_server 1.2.3.4 -u test -p test create
+	# sqlite support
+	# Warning:
+	#   1. db file ext. should be .sqlite or .sqlite3
+	#   2. no other db file in /path/to/db
+	$ ./manage.py -s radpass -d /path/to/db create
 	```
 
 ## Note
