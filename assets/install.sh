@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#initializaiton
+#initialization
 if [[ -h /etc/freeradius/mods-enabled/sql ]]; then
   exit 0
 fi
