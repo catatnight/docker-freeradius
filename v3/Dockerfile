@@ -15,7 +15,7 @@ RUN apt-get -y install software-properties-common \
     && apt-get -y install freeradius freeradius-mysql
 
 # Add files
-ADD assets/install.sh /opt/install.sh
+ADD install.sh /opt/install.sh
 
 # Run
 CMD /opt/install.sh;/usr/sbin/freeradius -f
