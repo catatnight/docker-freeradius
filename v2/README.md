@@ -5,7 +5,7 @@
 1. Build image (as root)
 
 	```bash
-	$ docker pull catatnight/freeradius
+	$ docker pull catatnight/freeradius:latest
 	$ curl https://raw.githubusercontent.com/catatnight/docker-freeradius/master/v2/manage.py -o manage.py
 	$ chmod +x manage.py
 	```

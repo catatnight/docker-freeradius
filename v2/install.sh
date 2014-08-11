@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #initialization
-if [[ "$(cat /etc/freeradius/sql.conf | grep $mysql_passwd)" != "" ]]; then
+if [[ "$(cat /etc/freeradius/clients.conf | grep '0.0.0.0')" != "" ]]; then
   exit 0
 fi
 
