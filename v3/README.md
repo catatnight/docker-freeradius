@@ -6,7 +6,7 @@
 
 	```bash
 	$ docker pull catatnight/freeradius3.0
-	$ curl https://raw.githubusercontent.com/catatnight/docker-freeradius/master/manage.py -o manage.py
+	$ curl https://raw.githubusercontent.com/catatnight/docker-freeradius/master/v3/manage.py -o manage.py
 	$ chmod +x manage.py
 	```
 
