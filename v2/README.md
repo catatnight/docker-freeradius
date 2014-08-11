@@ -15,7 +15,6 @@
 
 	```bash
 	$ ./manage.py [create|start|stop|restart|delete]
-	$ # mysql support
 	$ ./manage.py -s radpass --mysql_server 1.2.3.4 -u test -p test create
 	```
 
