@@ -38,6 +38,8 @@ Docker-ARA
 	 --name ara -d catatnight/ara
 	```
 
+2. You can visit web client on http://server.name:8080/ara with admin/`$admin_passwd`
+
 ## Note
 + TBD
 
