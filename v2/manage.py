@@ -20,13 +20,14 @@ parser.add_argument("-s", "--radius_secret", help="radius server secret ")
 parser.add_argument("--mysql_server", help="mysql server address ")
 parser.add_argument("-u", "--mysql_login", help="mysql server login username ")
 parser.add_argument("-p", "--mysql_passwd", help="mysql server login password ")
+parser.add_argument("--readsqlclients", action="store_true", help="read clients from nas table ")
 args = parser.parse_args()
 
 cmd_dict = { \
 	"create": \
 		"docker run --net=host -e radpass={1} -e mysql_server={2} -e mysql_login={3} -e mysql_passwd={4} " \
-		"-e time_zone=Asia/Shanghai --name {0} -d catatnight/{0}" \
-		.format(app_name, args.radius_secret, args.mysql_server, args.mysql_login, args.mysql_passwd), \
+		"-e readsqlclients={5} -e time_zone=Asia/Shanghai --name {0} -d catatnight/{0}" \
+		.format(app_name, args.radius_secret, args.mysql_server, args.mysql_login, args.mysql_passwd, "yes" if args.readsqlclients else "no"), \
 	"start": "docker start %s" % app_name, \
 	"stop": "docker stop %s" % app_name, \
 	"restart": "docker restart %s" % app_name, \

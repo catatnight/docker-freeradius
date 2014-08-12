@@ -6,9 +6,13 @@ if [[ "$(cat /etc/freeradius/clients.conf | grep '0.0.0.0')" != "" ]]; then
 fi
 
 #freeradius
-sed -i -e "/client localhost/i client 0.0.0.0/0{\n\tsecret = $radpass\n}" \
-  -e "/client localhost/i client ipv6{\n\tipv6addr = ::\n\tsecret = $radpass\n}" \
-  -e "s/testing123/$radpass/" /etc/freeradius/clients.conf
+if [[ $readsqlclients == "no" ]]; then
+  sed -i -e "/client localhost/i client 0.0.0.0/0{\n\tsecret = $radpass\n}" \
+  	-e "/client localhost/i client ipv6{\n\tipv6addr = ::\n\tsecret = $radpass\n}" \
+  	-e "s/testing123/$radpass/" /etc/freeradius/clients.conf
+else
+  sed -i "s/#\(readclients = yes\)/\1/" /etc/freeradius/sql.conf
+fi
 sed -i -e 's/^#[ \t]\$INCLUDE sql.conf$/\t\$INCLUDE sql.conf/' \
   -e "1i listen {\n\tipv6addr = ::\n\tport = 0\n\ttype = auth\n}" \
   -e "1i listen {\n\tipv6addr = ::\n\tport = 0\n\ttype = acct\n}" /etc/freeradius/radiusd.conf

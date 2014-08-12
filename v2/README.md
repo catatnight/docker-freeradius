@@ -15,11 +15,19 @@
 
 	```bash
 	$ ./manage.py [create|start|stop|restart|delete]
+	```
+	a) all remote clients are allowed, and access restriction could be made by firewall rules
+
+	```bash
 	$ ./manage.py -s radpass --mysql_server 1.2.3.4 -u test -p test create
+	```
+	b) you've maintained the clients in `nas` table
+
+	```bash
+	$ ./manage.py --readsqlclients --mysql_server 1.2.3.4 -u test -p test create
 	```
 
 ## Note
-+ all remote clients (ipv4/ipv6) are allowed by freeradius, and access restriction could be specified by firewall rules.
 + ```default_eap_type = mschapv2 (default: md5)```
 
 ## Reference
