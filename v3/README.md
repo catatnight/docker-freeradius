@@ -6,7 +6,7 @@
 
 	```bash
 	$ docker pull catatnight/freeradius3.0
-	$ curl https://raw.githubusercontent.com/catatnight/docker-freeradius/master/v3/manage.py -o manage.py
+	$ wget https://raw.githubusercontent.com/catatnight/docker-freeradius/master/v3/manage.py
 	$ chmod +x manage.py
 	```
 
@@ -15,12 +15,17 @@
 
 	```bash
 	$ ./manage.py [create|start|stop|restart|delete]
-	# mysql support
+	```
+	a) mysql support
+
+	```bash
 	$ ./manage.py -s radpass --mysql_server 1.2.3.4 -u test -p test create
-	# sqlite support
-	# Warning:
-	#   1. db file ext. should be .sqlite or .sqlite3
-	#   2. no other db file in /path/to/db
+	```
+	b) sqlite support
+	  1. db file ext. should be `.sqlite` or `.sqlite3`
+	  2. no other db file in `/path/to/db`
+
+	```bash
 	$ ./manage.py -s radpass -d /path/to/db create
 	```
 
