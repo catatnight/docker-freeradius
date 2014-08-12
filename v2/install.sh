@@ -19,6 +19,7 @@ sed -i -e 's/^#[ \t]\$INCLUDE sql.conf$/\t\$INCLUDE sql.conf/' \
 sed -i -e "s/server = \"localhost\"/server = \"$mysql_server\"/" \
   -e "s/login = \"radius\"/login = \"$mysql_login\"/" \
   -e "s/password = \"radpass\"/password = \"$mysql_passwd\"/" /etc/freeradius/sql.conf
+sed -i "/simul_count_query =/,+3 s/#//" /etc/freeradius/sql/mysql/dialup.conf
 sed -i 's/^#[ \t]sql$/\tsql/' /etc/freeradius/sites-available/default
 sed -i 's/^#[ \t]sql$/\tsql/' /etc/freeradius/sites-available/inner-tunnel
 sed -i '0,/md5/{s/md5/mschapv2/}' /etc/freeradius/eap.conf
