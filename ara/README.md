@@ -16,7 +16,7 @@ Docker-ARA
 2. Import ```user-info``` table to ```radius``` database
 
 	```bash
-	$ wget https://raw.githubusercontent.com/catatnight/docker-ara/master/da.sql
+	$ wget https://raw.githubusercontent.com/catatnight/docker-freeradius/master/ara/da.sql
 	$ mysql -uradius -p radius < da.sql
 	```
 
