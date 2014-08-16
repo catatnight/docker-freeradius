@@ -15,4 +15,4 @@ ADD assets/admin.php /ara/src/config/users/admin.php
 ADD assets/install.sh /opt/install.sh
 
 # Run
-CMD /opt/install.sh;/usr/bin/supervisord -c /etc/supervisor/nginx-php5.conf
+CMD /opt/install.sh;/usr/bin/supervisord -c /etc/supervisor/supervisord.conf
