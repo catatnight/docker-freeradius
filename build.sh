@@ -1,3 +1,3 @@
 #!/bin/bash
 
-docker build --rm -t catatnight/freeradius .
+docker build -t catatnight/freeradius .
