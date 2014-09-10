@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #initialization
-if [[ "$(cat /etc/freeradius/clients.conf | grep '0.0.0.0')" != "" ]]; then
+if [[ "$(cat /etc/freeradius/dictionary | grep 'Max-Monthly-Traffic')" != "" ]]; then
   exit 0
 fi
 
