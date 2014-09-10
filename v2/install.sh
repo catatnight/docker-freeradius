@@ -12,7 +12,7 @@ if [[ $readsqlclients == "no" ]]; then
     -e "s/testing123/$radpass/" /etc/freeradius/clients.conf
 else
   sed -i "/readclients/ s/#//" /etc/freeradius/sql.conf
-  sed -i "s/\(\$INCLUDE clients.conf\)/#\1/" /etc/freeradius/radiusd.conf
+  sed -i "/clients.conf$/ s/^/#/" /etc/freeradius/radiusd.conf
 fi
 sed -i -e '/sql.conf$/ s/#//' \
   -e "1i listen {\n\tipv6addr = ::\n\tport = 0\n\ttype = auth\n}" \
