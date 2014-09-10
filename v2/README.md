@@ -32,7 +32,7 @@
 + The following attributes are available in table `radgroupcheck`
 
 	| id | groupname | attribute | op | value |
-	|---|:---:|---|---|:---:|
+	|---|:---:|:---:|---|:---:|
 	| 1 | VIP | Simultaneous-Use | := | 3 |
 	| 2 | VIP | Max-Monthly-Traffic | := | 1073741824* |
 	| 3 | VIP | Acct-Interim-Interval | := | 60 |
