@@ -11,10 +11,10 @@ if [[ $readsqlclients == "no" ]]; then
     -e "/client localhost/i client ipv6{\n\tipv6addr = ::\n\tsecret = $radpass\n}" \
     -e "s/testing123/$radpass/" /etc/freeradius/clients.conf
 else
-  sed -i "s/#\(readclients = yes\)/\1/" /etc/freeradius/sql.conf
+  sed -i "/readclients/ s/#//" /etc/freeradius/sql.conf
   sed -i "s/\(\$INCLUDE clients.conf\)/#\1/" /etc/freeradius/radiusd.conf
 fi
-sed -i -e 's/^#[ \t]\$INCLUDE sql.conf$/\t\$INCLUDE sql.conf/' \
+sed -i -e '/sql.conf$/ s/#//' \
   -e "1i listen {\n\tipv6addr = ::\n\tport = 0\n\ttype = auth\n}" \
   -e "1i listen {\n\tipv6addr = ::\n\tport = 0\n\ttype = acct\n}" /etc/freeradius/radiusd.conf
 sed -i -e "s/server = \"localhost\"/server = \"$mysql_server\"/" \
