@@ -28,15 +28,15 @@
 	```
 
 ## Note
-+ ```default_eap_type = mschapv2 (default: md5)```
-+ The following attributes are available in table `radgroupcheck`
++ `default_eap_type = mschapv2` in `eap.conf`
++ The following attributes are available in `radgroupcheck` table
 
 	| id | groupname | attribute | op | value |
 	|---|:---:|:---:|---|:---:|
 	| 1 | VIP | Simultaneous-Use | := | 3 |
-	| 2 | VIP | Max-Monthly-Traffic | := | 1073741824* |
+	| 2 | VIP | Max-Monthly-Traffic | := | 1024* |
 	| 3 | VIP | Acct-Interim-Interval | := | 60 |
-	*\*1073741824 = 1G*
+	*\*1024 Megabyte*
 
 ## Reference
 + [通过FreeRADIUS实现VPN流量控制功能 - WangYan Blog(Google cached page)](http://webcache.googleusercontent.com/search?q=cache:jLRYw52iUM0J:www.dannysite.com/blog/63/+&cd=1&hl=zh-CN&ct=clnk&gl=us)

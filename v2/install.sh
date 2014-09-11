@@ -55,7 +55,8 @@ sqlcounter monthlytrafficcounter {
 	sqlmod-inst = sql
 	key = User-Name
 	reset = monthly
-	query = "SELECT SUM(acctinputoctets + acctoutputoctets) FROM radacct WHERE UserName='%{%k}' AND UNIX_TIMESTAMP(AcctStartTime) > '%b'"
+	# DIV 1048576(equal 1024 * 1024),means set trafficcounter unit to MB
+	query = "SELECT SUM(acctinputoctets + acctoutputoctets) DIV 1048576 FROM radacct WHERE UserName='%{%k}' AND UNIX_TIMESTAMP(AcctStartTime) > '%b'"
 }
 EOF
 sed -i '/^\tpap/a\\tmonthlytrafficcounter' /etc/freeradius/sites-available/default
