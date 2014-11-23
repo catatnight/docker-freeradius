@@ -21,7 +21,7 @@
 	```bash
 	$ ./manage.py -s radpass --mysql_server 1.2.3.4 -u test -p test create
 	```
-	b) you've maintained the clients in `nas` table
+	b) authorized clients' been maintained in `nas` table
 
 	```bash
 	$ ./manage.py --readsqlclients --mysql_server 1.2.3.4 -u test -p test create
@@ -36,7 +36,7 @@
 	| 1 | VIP | Simultaneous-Use | := | 3 |
 	| 2 | VIP | Max-Monthly-Traffic | := | 1024* |
 	| 3 | VIP | Acct-Interim-Interval | := | 60 |
-	*\*1024 Megabyte*
+	*\*1024 Megabytes*
 
 ## Reference
 + [通过FreeRADIUS实现VPN流量控制功能 - WangYan Blog(Google cached page)](http://webcache.googleusercontent.com/search?q=cache:jLRYw52iUM0J:www.dannysite.com/blog/63/+&cd=1&hl=zh-CN&ct=clnk&gl=us)
