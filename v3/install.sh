@@ -6,7 +6,7 @@ if [[ -h /etc/freeradius/mods-enabled/sql ]]; then
 fi
 
 #freeradius
-sed -i "s/allow_vulnerable_openssl.*/allow_vulnerable_openssl = yes/" /etc/freeradius/radiusd.conf
+sed -i "s/allow_vulnerable_openssl = no/allow_vulnerable_openssl = 'CVE-2014-0160'/" /etc/freeradius/radiusd.conf
 sed -i -e "/client localhost/i client 0.0.0.0/0{\n\tsecret = $radpass\n}" \
   -e "/client localhost/i client ipv6{\n\tipv6addr = ::\n\tsecret = $radpass\n}" \
   -e "s/testing123/$radpass/" /etc/freeradius/clients.conf
