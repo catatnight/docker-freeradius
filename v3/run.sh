@@ -25,3 +25,5 @@ sed -i '0,/md5/{s/md5/mschapv2/}' /etc/freeradius/mods-available/eap
 #timezone
 bash -c "echo $time_zone > /etc/timezone"
 dpkg-reconfigure -f noninteractive tzdata
+
+/usr/sbin/freeradius -f
